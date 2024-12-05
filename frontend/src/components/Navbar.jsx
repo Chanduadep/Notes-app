@@ -6,7 +6,8 @@ import { useDispatch } from "react-redux";
 import { signInSuccess, signoutFailure, signoutStart } from "../redux/user/userSlice";
 import axios from "axios";
 import {toast} from 'react-toastify'
-import BASE_URL from "../../config";
+import BASE_URL from "../congig";
+
 
 const Navbar = ({userInfo,handleClearSearch,onSearchNote}) => {
   const [searchQuery, setSearchQuery] = useState("");

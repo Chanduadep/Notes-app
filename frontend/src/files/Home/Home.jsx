@@ -9,7 +9,7 @@ import Navbar from "../..//components/Navbar";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { EmptyCard } from "../../components/EmptyCard/EmptyCard";
-import BASE_URL from "../../config";
+import BASE_URL from "../../congig";
 
 const Home = () => {
   const { currentUser, loading, errorDispatch } = useSelector(
