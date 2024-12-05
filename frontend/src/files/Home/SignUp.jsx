@@ -5,7 +5,6 @@ import { validateEmail } from "../../utils/helper";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -32,7 +31,7 @@ const SignUp = () => {
     //signup api
     try {
       const res = await axios.post(
-        `https://notes-app-backend-sgnn.onrender.com/api/auth/signup`,
+        "http://localhost:3000/api/auth/signup",
         { username: name, email, password },
         { withCredentials: true }
       );

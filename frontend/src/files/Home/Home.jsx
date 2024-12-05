@@ -10,7 +10,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { EmptyCard } from "../../components/EmptyCard/EmptyCard";
 
-
 const Home = () => {
   const { currentUser, loading, errorDispatch } = useSelector(
     (state) => state.user
@@ -41,7 +40,7 @@ const Home = () => {
 
   const getAllNotes = async () => {
     try {
-      const res = await axios.get(`https://notes-app-backend-sgnn.onrender.com/api/note/all`, {
+      const res = await axios.get(`http://localhost:3000/api/note/all`, {
         withCredentials: true,
       });
       if (res.data.success === false) {
@@ -66,7 +65,7 @@ const Home = () => {
 
     try {
       const res = await axios.delete(
-        `https://notes-app-backend-sgnn.onrender.com/api/note/delete/` + noteId,
+        "http://localhost:3000/api/note/delete/" + noteId,
         { withCredentials: true }
       );
       if (res.data.success === false) {
@@ -82,7 +81,7 @@ const Home = () => {
 
   const onSearchNote= async (query)=>{
     try{
-      const res=await axios.get(`https://notes-app-backend-sgnn.onrender.com/api/note/search`,
+      const res=await axios.get("http://localhost:3000/api/note/search",
         {params:{query},withCredentials:true}
       )
       if (res.data.success === false) {
@@ -106,7 +105,7 @@ const Home = () => {
 
     try {
       const res = await axios.put(
-        `https://notes-app-backend-sgnn.onrender.com/api/note/update-notepinned/` + noteId,
+        "http://localhost:3000/api/note/update-notepinned/" + noteId,
         { isPinned: !noteData.isPinned },
         { withCredentials: true }
       )

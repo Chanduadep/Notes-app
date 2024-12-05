@@ -8,7 +8,6 @@ import axios from "axios";
 import {toast} from 'react-toastify'
 
 
-
 const Navbar = ({userInfo,handleClearSearch,onSearchNote}) => {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
@@ -25,7 +24,7 @@ const Navbar = ({userInfo,handleClearSearch,onSearchNote}) => {
   const onLogout = async () => {
     try{
       dispatch(signoutStart())
-      const res=await axios.get(`https://notes-app-backend-sgnn.onrender.com/api/auth/signout`,{withCredentials:true,})
+      const res=await axios.get("http://localhost:3000/api/auth/signout",{withCredentials:true,})
       if(res.data.success===false){
         dispatch(signoutFailure(res.data.message))
         toast.error(res.data.message)
