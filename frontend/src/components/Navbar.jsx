@@ -25,7 +25,7 @@ const Navbar = ({userInfo,handleClearSearch,onSearchNote}) => {
   const onLogout = async () => {
     try{
       dispatch(signoutStart())
-      const res=await axios.get(`https://notes-app-frontend-g2h0.onrender.com/api/auth/signout`,{withCredentials:true,})
+      const res=await axios.get(`https://notes-app-backend-sgnn.onrender.com/api/auth/signout`,{withCredentials:true,})
       if(res.data.success===false){
         dispatch(signoutFailure(res.data.message))
         toast.error(res.data.message)

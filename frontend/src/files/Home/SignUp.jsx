@@ -32,7 +32,7 @@ const SignUp = () => {
     //signup api
     try {
       const res = await axios.post(
-        `https://notes-app-frontend-g2h0.onrender.com/api/auth/signup`,
+        `https://notes-app-backend-sgnn.onrender.com/api/auth/signup`,
         { username: name, email, password },
         { withCredentials: true }
       );
