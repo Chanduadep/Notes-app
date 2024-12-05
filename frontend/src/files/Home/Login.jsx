@@ -6,7 +6,7 @@ import {useDispatch} from 'react-redux'
 import { signInFailure, signInStart, signInSuccess } from "../../redux/user/userSlice";
 import axios from 'axios'
 import {toast} from 'react-toastify'
-import BASE_URL from "../../congig";
+import BASE_URL from "../../config";
 
 const Login = () => {
   const [email, setEmail] = useState("");

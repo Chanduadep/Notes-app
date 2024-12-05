@@ -3,7 +3,7 @@ import { MdClose } from "react-icons/md";
 import TagInput from "../../components/TagInput";
 import axios from "axios";
 import {toast} from 'react-toastify'
-import BASE_URL from "../../congig";
+import BASE_URL from "../../config";
 const AddEditNotes = ({ onClose, noteData, type, getAllNotes }) => {
   const [title, setTitle] = useState(noteData?.title || "")
   const [content, setContent] = useState(noteData?.content || "")
