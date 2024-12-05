@@ -6,7 +6,7 @@ import {useDispatch} from 'react-redux'
 import { signInFailure, signInStart, signInSuccess } from "../../redux/user/userSlice";
 import axios from 'axios'
 import {toast} from 'react-toastify'
-import BASE_URL from "../../config";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -29,7 +29,7 @@ const Login = () => {
     //LoginApi
     try{
       dispatch(signInStart())
-      const res=await axios.post(`${BASE_URL}/api/auth/signin`,{email,password},{withCredentials:true})
+      const res=await axios.post(`https://notes-app-frontend-g2h0.onrender.com/api/auth/signin`,{email,password},{withCredentials:true})
       if(res.data.success===false){
         toast.error(res.data.message)
         console.log(res.data);

@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { signInSuccess, signoutFailure, signoutStart } from "../redux/user/userSlice";
 import axios from "axios";
 import {toast} from 'react-toastify'
-import BASE_URL from "../config";
+
 
 
 const Navbar = ({userInfo,handleClearSearch,onSearchNote}) => {
@@ -25,7 +25,7 @@ const Navbar = ({userInfo,handleClearSearch,onSearchNote}) => {
   const onLogout = async () => {
     try{
       dispatch(signoutStart())
-      const res=await axios.get(`${BASE_URL}/api/auth/signout`,{withCredentials:true,})
+      const res=await axios.get(`https://notes-app-frontend-g2h0.onrender.com/api/auth/signout`,{withCredentials:true,})
       if(res.data.success===false){
         dispatch(signoutFailure(res.data.message))
         toast.error(res.data.message)

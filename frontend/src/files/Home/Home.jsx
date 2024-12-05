@@ -41,7 +41,7 @@ const Home = () => {
 
   const getAllNotes = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/api/note/all`, {
+      const res = await axios.get(`https://notes-app-frontend-g2h0.onrender.com/api/note/all`, {
         withCredentials: true,
       });
       if (res.data.success === false) {
@@ -66,7 +66,7 @@ const Home = () => {
 
     try {
       const res = await axios.delete(
-        `${BASE_URL}/api/note/delete/` + noteId,
+        `https://notes-app-frontend-g2h0.onrender.com/api/note/delete/` + noteId,
         { withCredentials: true }
       );
       if (res.data.success === false) {
@@ -82,7 +82,7 @@ const Home = () => {
 
   const onSearchNote= async (query)=>{
     try{
-      const res=await axios.get(`${BASE_URL}/api/note/search`,
+      const res=await axios.get(`https://notes-app-frontend-g2h0.onrender.com/api/note/search`,
         {params:{query},withCredentials:true}
       )
       if (res.data.success === false) {
@@ -106,7 +106,7 @@ const Home = () => {
 
     try {
       const res = await axios.put(
-        `${BASE_URL}/api/note/update-notepinned/` + noteId,
+        `https://notes-app-frontend-g2h0.onrender.com/api/note/update-notepinned/` + noteId,
         { isPinned: !noteData.isPinned },
         { withCredentials: true }
       )

@@ -3,7 +3,7 @@ import { MdClose } from "react-icons/md";
 import TagInput from "../../components/TagInput";
 import axios from "axios";
 import {toast} from 'react-toastify'
-import BASE_URL from "../../config";
+
 const AddEditNotes = ({ onClose, noteData, type, getAllNotes }) => {
   const [title, setTitle] = useState(noteData?.title || "")
   const [content, setContent] = useState(noteData?.content || "")
@@ -17,7 +17,7 @@ const AddEditNotes = ({ onClose, noteData, type, getAllNotes }) => {
 
     try {
       const res = await axios.post(
-        `${BASE_URL}/api/note/edit/` + noteId,
+        `https://notes-app-frontend-g2h0.onrender.com/api/note/edit/` + noteId,
         { title, content, tags },
         { withCredentials: true }
       )
@@ -45,7 +45,7 @@ const AddEditNotes = ({ onClose, noteData, type, getAllNotes }) => {
   const addNewNote = async () => {
     try {
       const res = await axios.post(
-        `${BASE_URL}/api/note/add-note`,
+        `https://notes-app-frontend-g2h0.onrender.com/api/note/add-note`,
         { title, content, tags },
         { withCredentials: true }
       )
