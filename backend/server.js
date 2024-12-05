@@ -21,7 +21,7 @@ const app=express()
 //to make input as json
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({origin:["http://localhost:5173"],credentials:true }))
+app.use(cors({ origin: ["http://localhost:5173"], credentials: true }))
 
 
 app.listen(3000,()=>{
@@ -37,7 +37,7 @@ app.use("/api/note",noteRouter)
 
 app.use((err,req,res,next)=>{
     const statusCode=err.statusCode || 500
-    const message =err.message||"Tnternal server"
+    const message =err.message||"Internal server"
 
     return res.status(statusCode).json({
         success:false,statusCode,message,

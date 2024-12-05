@@ -8,42 +8,53 @@ import axios from "axios";
 import {toast} from 'react-toastify'
 
 
-const Navbar = ({userInfo,handleClearSearch,onSearchNote}) => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const navigate = useNavigate();
-  const dispatch=useDispatch()
+
+const Navbar = ({ userInfo, onSearchNote, handleClearSearch }) => {
+  const [searchQuery, setSearchQuery] = useState("")
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
   const handleSearch = () => {
-    if(searchQuery){
+    if (searchQuery) {
       onSearchNote(searchQuery)
     }
-  };
+  }
+
   const onClearSearch = () => {
-    setSearchQuery("");
+    setSearchQuery("")
     handleClearSearch()
-  };
+  }
+
   const onLogout = async () => {
-    try{
+    try {
       dispatch(signoutStart())
-      const res=await axios.get("http://localhost:3000/api/auth/signout",{withCredentials:true,})
-      if(res.data.success===false){
+
+      const res = await axios.get("http://localhost:3000/api/auth/signout", {
+        withCredentials: true,
+      })
+
+      if (res.data.success === false) {
         dispatch(signoutFailure(res.data.message))
         toast.error(res.data.message)
         return
       }
+
       toast.success(res.data.message)
       dispatch(signInSuccess())
-      navigate("/login  ")
-      
-    }catch(error){
+      navigate("/login")
+    } catch (error) {
       toast.error(error.message)
       dispatch(signoutFailure(error.message))
     }
-  };
+  }
+
   return (
     <div className="bg-white flex items-center justify-between px-6 py-2 drop-shadow">
       <Link to={"/"}>
         <h2 className="text-xl font-medium text-black py-2">
-          <span className="text-slate-500">Notes</span>
+          
+          <span className="text-slate-900">Notes</span>
         </h2>
       </Link>
 
@@ -53,9 +64,10 @@ const Navbar = ({userInfo,handleClearSearch,onSearchNote}) => {
         handleSearch={handleSearch}
         onClearSearch={onClearSearch}
       />
+
       <ProfileInfo userInfo={userInfo} onLogout={onLogout} />
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
