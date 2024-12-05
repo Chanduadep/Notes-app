@@ -21,7 +21,8 @@ const app=express()
 //to make input as json
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({origin:"https://notes-app-frontend-g2h0.onrender.com",
+app.use(cors({origin:["https://notes-app-frontend-g2h0.onrender.com",
+    "http://localhost:5173"],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],credentials:true }))
 
 
