@@ -168,8 +168,8 @@ const Home = () => {
           <EmptyCard
             imgSrc={
               isSearch
-                ? "https://img.freepik.com/premium-vector/no-result-found-empty-results-popup-design_586724-96.jpg?semt=ais_hybrid"
-                : "https://img.freepik.com/premium-vector/colored-sticky-notes-paper-illustration-blank-paper-sheets-note-cute-notes-paper-stickers_64264-1314.jpg"
+                ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtakcQoMFXwFwnlochk9fQSBkNYkO5rSyY9A&s"
+                : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDCtZLuixBFGTqGKdWGLaSKiO3qyhW782aZA&s"
             }
             message={
               isSearch
